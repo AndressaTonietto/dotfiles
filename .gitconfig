@@ -1,1 +1,30 @@
-/Users/gustavotonietto/code/tonietto/dotfiles/.gitconfig
+[user]
+	email = tonietto@gmail.com
+	name = Gustavo Tonietto
+	signingkey = 1EEF93ED26A27A7F
+[push]
+	default = simple
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[help]
+	autocorrect = -1
+[alias]
+	st = status
+	co = checkout
+	sc = switch -c
+	pushup = push --set-upstream origin
+	b = branch
+	c = commit
+	f = fetch
+	ready = rebase -i @{u}
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[diff]
+	ignoreSubmodules = dirty

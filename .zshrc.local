@@ -12,8 +12,8 @@ export LC_ALL=en_US.UTF-8
 alias python='python3'
 
 # Load zsh plugins
-[[ -e ~/.config/zsh/.zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ]] && source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-[[ -e ~/.config/zsh/.zsh-autosuggestions.zsh  ]] && source ~/.zsh-autosuggestions.zsh
+[[ -e ~/.config/zsh/.zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ]] && source ~/.config/zsh/.zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+[[ -e ~/.config/zsh/.zsh-autosuggestions.zsh  ]] && source ~/.config/zsh/.zsh-autosuggestions.zsh
 
 # Completions
 fpath=(~/.config/zsh/completions $fpath)

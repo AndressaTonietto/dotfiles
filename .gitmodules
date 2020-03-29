@@ -1,0 +1,96 @@
+[submodule ".vim/pack/coc/start/coc.nvim"]
+	path = .vim/pack/coc/start/coc.nvim
+	url = git@github.com:neoclide/coc.nvim.git
+[submodule ".vim/pack/plugins/opt/FastFold"]
+	path = .vim/pack/plugins/opt/FastFold
+	url = git@github.com:Konfekt/FastFold.git
+[submodule ".vim/pack/plugins/opt/vim-airline"]
+	path = .vim/pack/plugins/opt/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
+[submodule ".vim/pack/plugins/opt/vim-mundo"]
+	path = .vim/pack/plugins/opt/vim-mundo
+	url = git@github.com:simnalamburt/vim-mundo.git
+[submodule ".vim/pack/plugins/start/ale"]
+	path = .vim/pack/plugins/start/ale
+	url = git@github.com:dense-analysis/ale.git
+[submodule ".vim/pack/plugins/start/editorconfig-vim"]
+	path = .vim/pack/plugins/start/editorconfig-vim
+	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule ".vim/pack/plugins/start/emmet-vim"]
+	path = .vim/pack/plugins/start/emmet-vim
+	url = git@github.com:mattn/emmet-vim.git
+[submodule ".vim/pack/plugins/start/fzf"]
+	path = .vim/pack/plugins/start/fzf
+	url = git@github.com:junegunn/fzf.git
+[submodule ".vim/pack/plugins/start/fzf.vim"]
+	path = .vim/pack/plugins/start/fzf.vim
+	url = git@github.com:junegunn/fzf.vim.git
+[submodule ".vim/pack/plugins/start/git-blame.vim"]
+	path = .vim/pack/plugins/start/git-blame.vim
+	url = git@github.com:zivyangll/git-blame.vim.git
+[submodule ".vim/pack/plugins/start/i3-vim-syntax"]
+	path = .vim/pack/plugins/start/i3-vim-syntax
+	url = git@github.com:PotatoesMaster/i3-vim-syntax.git
+[submodule ".vim/pack/plugins/start/javascript-libraries-syntax.vim"]
+	path = .vim/pack/plugins/start/javascript-libraries-syntax.vim
+	url = git@github.com:othree/javascript-libraries-syntax.vim.git
+[submodule ".vim/pack/plugins/start/jsdoc-syntax.vim"]
+	path = .vim/pack/plugins/start/jsdoc-syntax.vim
+	url = git@github.com:othree/jsdoc-syntax.vim.git
+[submodule ".vim/pack/plugins/start/minibufexpl.vim"]
+	path = .vim/pack/plugins/start/minibufexpl.vim
+	url = git@github.com:fholgado/minibufexpl.vim.git
+[submodule ".vim/pack/plugins/start/ranger.vim"]
+	path = .vim/pack/plugins/start/ranger.vim
+	url = git@github.com:francoiscabrol/ranger.vim.git
+[submodule ".vim/pack/plugins/start/tig-explorer.vim"]
+	path = .vim/pack/plugins/start/tig-explorer.vim
+	url = git@github.com:iberianpig/tig-explorer.vim.git
+[submodule ".vim/pack/plugins/start/traces.vim"]
+	path = .vim/pack/plugins/start/traces.vim
+	url = git@github.com:markonm/traces.vim.git
+[submodule ".vim/pack/plugins/start/vim-better-comments"]
+	path = .vim/pack/plugins/start/vim-better-comments
+	url = git@github.com:jbgutierrez/vim-better-comments.git
+[submodule ".vim/pack/plugins/start/vim-colorschemes"]
+	path = .vim/pack/plugins/start/vim-colorschemes
+	url = git@github.com:flazz/vim-colorschemes.git
+[submodule ".vim/pack/plugins/start/vim-commentary"]
+	path = .vim/pack/plugins/start/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+[submodule ".vim/pack/plugins/start/vim-css-color"]
+	path = .vim/pack/plugins/start/vim-css-color
+	url = git@github.com:ap/vim-css-color.git
+[submodule ".vim/pack/plugins/start/vim"]
+	path = .vim/pack/plugins/start/vim
+	url = git@github.com:dracula/vim.git
+[submodule ".vim/pack/plugins/start/vim-gitgutter"]
+	path = .vim/pack/plugins/start/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git
+[submodule ".vim/pack/plugins/start/vim-jsdoc"]
+	path = .vim/pack/plugins/start/vim-jsdoc
+	url = git@github.com:heavenshell/vim-jsdoc.git
+[submodule ".vim/pack/plugins/start/vim-ledger"]
+	path = .vim/pack/plugins/start/vim-ledger
+	url = git@github.com:ledger/vim-ledger.git
+[submodule ".vim/pack/plugins/start/vim-nodejs-complete"]
+	path = .vim/pack/plugins/start/vim-nodejs-complete
+	url = git@github.com:myhere/vim-nodejs-complete.git
+[submodule ".vim/pack/plugins/start/vim-polyglot"]
+	path = .vim/pack/plugins/start/vim-polyglot
+	url = git@github.com:sheerun/vim-polyglot.git
+[submodule ".vim/pack/plugins/start/vim-prettier"]
+	path = .vim/pack/plugins/start/vim-prettier
+	url = git@github.com:prettier/vim-prettier.git
+[submodule ".vim/pack/plugins/start/vim-rooter"]
+	path = .vim/pack/plugins/start/vim-rooter
+	url = git@github.com:airblade/vim-rooter.git
+[submodule ".vim/pack/plugins/start/vim-startify"]
+	path = .vim/pack/plugins/start/vim-startify
+	url = git@github.com:mhinz/vim-startify.git
+[submodule ".vim/pack/plugins/start/vim-surround"]
+	path = .vim/pack/plugins/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule ".vim/pack/plugins/start/vim-todo-lists"]
+	path = .vim/pack/plugins/start/vim-todo-lists
+	url = git@github.com:aserebryakov/vim-todo-lists.git

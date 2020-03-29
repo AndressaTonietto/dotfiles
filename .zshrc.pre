@@ -1,0 +1,14 @@
+GRML_DISPLAY_BATTERY=1
+HISTSIZE=500000
+MAILCHECK=0
+
+# freaking mac:
+export BROWSER="open -a \"Google Chrome\""
+
+export PATH="$(du $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH"
+export EDITOR="vim"
+export TERMINAL="iterm"
+export PAGER="less"
+export READER="zathura"
+export NNN_USE_EDITOR=1
+export GOPATH="$HOME/go"

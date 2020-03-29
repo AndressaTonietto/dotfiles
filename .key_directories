@@ -1,0 +1,30 @@
+# You can add comments to these files with #
+# home dirs
+h	~/
+cc	~/code
+d	~/Documents
+D	~/Downloads
+P	~/Pictures
+ld	~/ledger
+m	~/Music
+nt      ~/notes
+pp	~/Pictures
+vv	~/Videos
+cf	~/.config
+sc	~/.scripts
+
+# code dirs
+H	~/code/heycar
+hw	~/code/heycar/web-app
+prm	~/code/heycar/web-app/src/app/marketplace/premium
+plp	~/code/heycar/web-app/src/app/marketplace/premium/PremiumLandingPage
+cnt	~/code/heycar/web-app/src/app/marketplace/contentful
+shd	~/code/heycar/web-app/src/app/shared
+shc	~/code/heycar/web-app/src/app/shared/components
+T	~/code/tonietto
+td	~/code/tonietto/dotfiles
+tv	~/code/tonietto/voidrice
+
+# root dirs
+mn	/mnt
+e	/etc

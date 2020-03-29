@@ -94,3 +94,6 @@
 [submodule ".vim/pack/plugins/start/vim-todo-lists"]
 	path = .vim/pack/plugins/start/vim-todo-lists
 	url = git@github.com:aserebryakov/vim-todo-lists.git
+[submodule ".vim/pack/plugins/start/vim-dracula"]
+	path = .vim/pack/plugins/start/vim-dracula
+	url = git@github.com:dracula/vim.git

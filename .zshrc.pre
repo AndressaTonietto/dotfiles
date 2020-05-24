@@ -6,7 +6,7 @@ MAILCHECK=0
 export BROWSER="open -a \"Google Chrome\""
 
 export PATH="$(du $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH"
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERMINAL="iterm"
 export PAGER="less"
 export READER="zathura"

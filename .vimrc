@@ -209,7 +209,7 @@ set scrolloff=1
 hi Folded ctermbg=236
 " }}}
 " Give us 256 color schemes! {{{
-set term=screen-256color
+" set term=screen-256color
 " }}}
 " Don't break mid word {{{
 set linebreak
@@ -301,7 +301,8 @@ nnoremap v\ :.!pbpaste<CR>
 " Plugins options {{{
 " Ale linter {{{
 let g:ale_completion_enabled = 0
-let g:ale_linters = {'javascript': ['eslint', 'stylelint']}
+let b:ale_linter_aliases = ['css', 'javascript']
+let b:ale_linters = ['stylelint', 'eslint']
 let g:ale_sign_column_always = 1
 
 " use ctrl-k and ctrl-j for navigating between errors
@@ -510,12 +511,19 @@ map <leader>R :RangerWorkingDirectory<CR>
 " open ranger when vim open a directory
 let g:ranger_replace_netrw = 1
 " }}}
+" Rooter {{{
+nnoremap <Leader>h :Rooter<CR>
+" }}}
+" Startify {{{
+let g:startify_custom_header = []
+nnoremap <Leader>s :Startify<CR>
+" }}}
 " gitgutter {{{
 let g:gitgutter_async = 0
 autocmd BufWritePost * GitGutter
 " }}}
 " git blame {{{
-nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
 " }}}
 " tig {{{
 nnoremap <Leader>t :TigOpenProjectRootDir<CR>

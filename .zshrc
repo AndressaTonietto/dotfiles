@@ -3778,3 +3778,4 @@ export SDKMAN_DIR="/Users/gustavotonietto/.sdkman"
 [[ -s "/Users/gustavotonietto/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gustavotonietto/.sdkman/bin/sdkman-init.sh"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn

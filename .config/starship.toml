@@ -1,12 +1,8 @@
-[line_break]
-disabled = false
-
-[nodejs]
-disabled = false
-# symbol = ""
-
-[git_branch]
+# [git_branch]
 # symbol = ""
 
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
+
+[git_status]
+stashed = ""

@@ -8,8 +8,8 @@ alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
 # alias p="sudo pacman"
 alias p="pass"
 alias SS="sudo systemctl"
-alias v="vim"
-alias sv="sudo vim"
+alias v="${EDITOR}"
+alias sv="sudo ${EDITOR}"
 alias r="ranger"
 alias sr="sudo ranger"
 alias ka="killall"
@@ -185,9 +185,9 @@ alias prs='hub pr checkout $(set -- $(hub pr list | fzf) && echo $1 | tr -d \#)'
 alias pro='hub pr show $(set -- $(hub pr list | fzf) && echo $1 | tr -d \#)'
 #}}}
 # Git {{{
+alias pushup='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 alias git='hub'
 alias gM='git merge'
-alias gST='git status'
 alias ga='git add'
 alias gb='fbr'
 alias gbm='git branch -m'
@@ -211,7 +211,7 @@ alias gmm='git merge --no-ff master'
 alias gp='git push'
 alias gs='git switch'
 alias gsc='git switch -c'
-alias gst='git status --short'
+alias gst='git status'
 alias tst='tig status'
 alias t='tig'
 # }}}

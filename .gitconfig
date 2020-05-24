@@ -28,3 +28,5 @@
 	program = gpg
 [diff]
 	ignoreSubmodules = dirty
+[status]
+	short = true

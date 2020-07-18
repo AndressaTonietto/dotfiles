@@ -15,20 +15,19 @@ alias python='python3'
 [[ -e ~/.config/zsh/.zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ]] && source ~/.config/zsh/.zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 [[ -e ~/.config/zsh/.zsh-autosuggestions.zsh  ]] && source ~/.config/zsh/.zsh-autosuggestions.zsh
 
-# Completions
-fpath=(~/.config/zsh/completions $fpath)
-autoload -U compinit && compinit
-
 # Load custom files
 [[ -e ~/.shortcuts  ]] && source ~/.shortcuts
 [[ -e ~/.aliases  ]] && source ~/.aliases
 
 zstyle ':prompt:grml:right:setup' items
 
-# nodengine and show-version
-cd () { builtin cd "$@" && chpwd; }
-pushd () { builtin pushd "$@" && chpwd; }
-popd () { builtin popd "$@" && chpwd; }
+# lazy loaded zsh nvm
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+source ~/.zsh-nvm/zsh-nvm.plugin.zsh
+
+# cache eval
+source ~/.evalcache.plugin.zsh
 
 # fix term variable type not accepted in ssh servers
 export TERM=xterm-256color
@@ -80,7 +79,7 @@ bindkey -M visual S add-surround
 bindkey 'jk' vi-cmd-mode
 
 # fasd
-eval "$(fasd --init auto)"
+_evalcache fasd --init auto
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD || fd --type f --follow --exclude .git,node_modules)'
@@ -92,20 +91,18 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Prevent shell from exiting with C-d
 setopt ignoreeof
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export NVM_SYMLINK_CURRENT=true
-
-# Auto change the nvm version based on a .nvmrc file based on the current directory. See https://github.com/creationix/nvm/issues/110#issuecomment-190125863
-autoload -U add-zsh-hook
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc  ]]; then
-    nvm use
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-
 # startship
-eval "$(starship init zsh)"
+_evalcache starship init zsh
+
+# measure zsh load time
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+# yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# export SDKMAN_DIR="/Users/gustavotonietto/.sdkman"
+# [[ -s "/Users/gustavotonietto/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gustavotonietto/.sdkman/bin/sdkman-init.sh"

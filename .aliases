@@ -210,10 +210,10 @@ alias gm='git merge --no-ff'
 alias gmm='git merge --no-ff master'
 alias gp='git push'
 alias gs='git switch'
-alias gsc='git switch -c'
 alias gst='git status'
 alias tst='tig status'
 alias t='tig'
+gsc(){ git fetch && git switch -c $1 origin/master }
 # }}}
 # Git Flow {{{
 alias gfli='git flow init'

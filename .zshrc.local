@@ -24,6 +24,7 @@ zstyle ':prompt:grml:right:setup' items
 # lazy loaded zsh nvm
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('vim')
 source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 
 # cache eval
@@ -106,3 +107,4 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 # export SDKMAN_DIR="/Users/gustavotonietto/.sdkman"
 # [[ -s "/Users/gustavotonietto/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gustavotonietto/.sdkman/bin/sdkman-init.sh"
+

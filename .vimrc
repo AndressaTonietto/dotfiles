@@ -85,8 +85,8 @@ set noerrorbells
 nnoremap <C-i> <C-a>
 " Use dot (.) with visual mode
 vnoremap . :norm.<CR>
-" Redraw only when we need to TODO: check if it shouldn't be better to use nolazyredraw
-set lazyredraw
+" Set to nolazyredraw in order to have faster buffer change time
+set nolazyredraw
 " Toggle paste
 nnoremap p\ :set paste<CR>
 nnoremap p/ :set nopaste<CR>
@@ -129,12 +129,6 @@ set splitbelow
 " Next and previous files in buffer
 nmap <silent> <leader>, :bp<CR>
 nmap <silent> <leader>. :bn<CR>
-
-" Folding
-" au FileType javascript set foldmethod=syntax
-" set foldlevelstart=99 "start file with all folds opened
-" nnoremap <Space> za
-" vnoremap <Space> za
 " }}}
 " Languages {{{
 " JSX {{{
@@ -187,13 +181,6 @@ set relativenumber
 " Toggle line numbers {{{
 nnoremap n\ :set number relativenumber<CR>
 nnoremap n/ :set nonumber norelativenumber<CR>
-" }}}
-" Show vertical line {{{
-augroup ColorcolumnOnlyInInsertMode
-  autocmd!
-  autocmd InsertEnter * setlocal colorcolumn=80
-  autocmd InsertLeave * setlocal colorcolumn=0
-augroup END
 " }}}
 " Briefly highlight matching brackets on close/open {{{
 set showmatch
@@ -298,12 +285,19 @@ set shell=zsh
 nnoremap v\ :.!pbpaste<CR>
 " }}}
 " }}}
-" Plugins options {{{
+" Plugin options {{{
 " Ale linter {{{
 let g:ale_completion_enabled = 0
 let b:ale_linter_aliases = ['css', 'javascript']
 let b:ale_linters = ['stylelint', 'eslint']
 let g:ale_sign_column_always = 1
+
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '»'
+
+highlight ALEErrorSign ctermbg=red
+highlight ALEWarning ctermbg=DarkMagenta
+
 
 " use ctrl-k and ctrl-j for navigating between errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -311,15 +305,6 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " disable highlight colors
 let g:ale_set_highlights = 0
-" }}}
-" Airline {{{
-" NOTE: Remove or uncomment this
-" Git gutter
-" function! GitStatus()
-"   let [a,m,r] = GitGutterGetHunkSummary()
-"   return printf('+%d ~%d -%d', a, m, r)
-" endfunction
-" set statusline+=%{GitStatus()}
 " }}}
 " BetterComments {{{
 hi! def link TodoBetterComments Todo
@@ -458,6 +443,10 @@ let g:markdown_folding = 1
 let g:javaScript_fold = 1
 let g:sh_fold_enabled= 7
 " }}}
+" fff {{{
+" Open fff on press of 'f'
+nnoremap fff :F<CR>
+" }}}
 " fzf {{{
 nnoremap <C-f> :Rg<CR>
 nnoremap <C-p> :Rg<CR>
@@ -545,4 +534,5 @@ set wildmenu
 set backupcopy=yes
 "}}}
 "}}}
+
 " vim:foldmethod=marker:foldlevel=0

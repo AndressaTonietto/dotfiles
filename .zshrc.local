@@ -11,10 +11,6 @@ export LC_ALL=en_US.UTF-8
 # python (macos fix)
 alias python='python3'
 
-# Load zsh plugins
-[[ -e ~/.config/zsh/.zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ]] && source ~/.config/zsh/.zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-[[ -e ~/.config/zsh/.zsh-autosuggestions.zsh  ]] && source ~/.config/zsh/.zsh-autosuggestions.zsh
-
 # Load custom files
 [[ -e ~/.shortcuts  ]] && source ~/.shortcuts
 [[ -e ~/.aliases  ]] && source ~/.aliases
@@ -24,7 +20,7 @@ zstyle ':prompt:grml:right:setup' items
 # lazy loaded zsh nvm
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
-export NVM_LAZY_LOAD_EXTRA_COMMANDS=('vim')
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('vim' 'nvim' 'v' 'tig' 't' 'tst')
 source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 
 # cache eval

@@ -6,14 +6,14 @@
 " Standarts and sensibles {{{
 let mapleader =" "
 
-" Mostly from LARBS.xyz
-" Some basics:
+" Some basics
 set nocompatible
 filetype plugin on
 syntax on
 set encoding=utf-8
 set number
 set relativenumber
+set cursorline
 
 " vim sensible
 set autoindent
@@ -22,7 +22,7 @@ set smarttab
 set laststatus=2 " get a window last status (2=always)
 set incsearch " show matches wile searchgin
 set formatoptions+=j " Delete comment character when joining commented lines
-setglobal tags-=./tags tags-=./tags; tags^=./tags;
+" setglobal tags-=./tags tags-=./tags; tags^=./tags; " TODO: remove if not missing it
 set autoread " update content automatically when a file has been modified externaly
 set history=1000 " command history
 set tabpagemax=50
@@ -32,12 +32,9 @@ if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
 
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+" Splits open at the bottom and right, which is non-retarded, unlike vim defaults (larbs.xyz)
 set splitbelow
 set splitright
-
-" Check file in shellcheck:
-" map <leader>s :!clear && shellcheck %<CR> " validate it
 
 " Replace all is aliased to S.
 nnoremap S :%s//g<Left><Left>
@@ -47,12 +44,6 @@ let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markd
 
 " Make calcurse notes markdown compatible:
 autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
-
-" groff files automatically detected
-autocmd BufRead,BufNewFile *.ms,*.me,*.mom set filetype=groff
-
-" .tex files automatically detected
-autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 " Readmes autowrap text:
 autocmd BufRead,BufNewFile *.md set tw=79
@@ -69,66 +60,94 @@ autocmd BufWritePre * %s/\s\+$//e
 " When shortcut files are updated, renew bash and ranger configs with new material:
 autocmd BufWritePost ~/.key_directories,~/.key_files !bash ~/.scripts/tools/shortcuts
 
-" Runs a script that cleans out tex build files whenever I close out of a .tex file.
-autocmd VimLeave *.tex !texclear %
-
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" }}}
-" MISC {{{
+
 " Allow to change buffers without writing
 set hidden
+
 " Error bells
 set noerrorbells
+
 " Increment/decrement alternatives
 " C-a is a tmux custom reserved shortcut
 nnoremap <C-i> <C-a>
+
 " Use dot (.) with visual mode
 vnoremap . :norm.<CR>
+
 " Set to nolazyredraw in order to have faster buffer change time
 set nolazyredraw
+
 " Toggle paste
 nnoremap p\ :set paste<CR>
 nnoremap p/ :set nopaste<CR>
+
 " Enable scrolling
 set mouse=a
+
 " Be more verbose about stuff generally
 set showcmd
-" Set undofile
+
 set undofile
+
 " Change default directories
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+
 " Use spaces
 set shiftwidth=2
 set softtabstop=2
+
 " Autoload vimrc changes
 augroup myvimrc
   au!
   au BufWritePost .vimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
+
 " Allow saving of files as sudo when forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
 " No shift to enter commands, use semicolon
 nnoremap ; :
 vnoremap ; :
+
 " Disable scratch preview window on autocomplete
 set completeopt=longest,menuone,preview
+
 " set completeopt-=preview
 set pumheight=15
+
 " Modelines
 " Modelines are special comments somewhere in a file that can can declare
 " certain Vim settings to be used only for that file.
 set modelines=1
+
 " Map Esc to jk
 inoremap jk <Esc>
+
 " Don't split left nor above
 set splitright
 set splitbelow
+
 " Next and previous files in buffer
 nmap <silent> <leader>, :bp<CR>
 nmap <silent> <leader>. :bn<CR>
+
+" Search default
+set complete=.,b,u,]               " In the above example it will pull from keywords in the current file, other buffers (closed or still open), and from the current tags file
+set wildmode=longest,list:longest  " Read https://robots.thoughtbot.com/vim-you-complete-me
+set completeopt=menu,preview       " Default menu
+imap <Tab> <C-P>
+
+" search down into subfolders
+" provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+set backupcopy=yes
 " }}}
 " Languages {{{
 " JSX {{{
@@ -165,68 +184,54 @@ au BufNewFile,BufRead *.mjs set filetype=javascript
 " Syntaxes for unknown or new file extensions {{{
 autocmd BufNewFile,BufRead *.php set syntax=php
 autocmd BufNewFile,BufRead *.prisma set syntax=graphql
-" autocmd BufNewFile,BufRead *.mdx set syntax=markdown
+autocmd BufNewFile,BufRead *.mdx set syntax=markdown
 autocmd BufNewFile,BufRead *.todos set syntax=todos
 " }}}
+" }}}
 " UX {{{
-" General {{{
-set encoding=utf-8
-" highlight the selected line
-set cursorline
-" }}}
-" Show line numbers {{{
-set number
-set relativenumber
-" }}}
-" Toggle line numbers {{{
+" Toggle line numbers
 nnoremap n\ :set number relativenumber<CR>
 nnoremap n/ :set nonumber norelativenumber<CR>
-" }}}
-" Briefly highlight matching brackets on close/open {{{
+
+" Briefly highlight matching brackets on close/open
 set showmatch
-" }}}
-" No wrapping {{{
+
+" No wrapping
 set nowrap
-" }}}
-" Allow scrolling past the bottom of the document {{{
+
+" Allow scrolling past the bottom of the document
 set scrolloff=1
-" }}}
-" Set color for folded text, see chart {{{
+
+" Set color for folded text, see chart
 " https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
 hi Folded ctermbg=236
-" }}}
-" Give us 256 color schemes! {{{
-" set term=screen-256color
-" }}}
-" Don't break mid word {{{
+
+" Don't break mid word
 set linebreak
-" }}}
-" Spell visual config {{{
+
+" Spell visual config
 highlight SpellBad      ctermfg=Red         term=Reverse        guisp=Red gui=undercurl   ctermbg=Black
 highlight SpellCap      ctermfg=Green       term=Reverse        guisp=Green gui=undercurl   ctermbg=Black
 highlight SpellLocal    ctermfg=Cyan        term=Underline      guisp=Cyan gui=undercurl   ctermbg=Black
 highlight SpellRare     ctermfg=Magenta     term=underline      guisp=Magenta gui=undercurl   ctermbg=Black
 " }}}
-" }}}
 "Colors {{{
-" General {{{
+" General
 syntax enable
 set t_Co=256
-" }}}
-" Color scheme {{{
+
+" Color scheme
 let g:enable_bold_font = 1
 set background:dark
 colorscheme dracula
+
 " fix dracula Pmenu (https://github.com/dracula/vim/issues/14)
 hi Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
 hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
-" }}}
-" Visual selection colors {{{
+" Visual selection colors
 hi Visual term=reverse cterm=reverse guibg=Grey
-" }}}
-" Search selection colors {{{
+" Search selection colors
 hi Search ctermbg=yellow ctermfg=black
-" }}}
 " }}}
 " IdleHighlight {{{
 " Highlight all instances of word under cursor, when idle.
@@ -284,12 +289,11 @@ set shell=zsh
 " Paste (with pbpaste) {{{
 nnoremap v\ :.!pbpaste<CR>
 " }}}
-" }}}
 " Plugin options {{{
 " Ale linter {{{
 let g:ale_completion_enabled = 0
-let b:ale_linter_aliases = ['css', 'javascript']
-let b:ale_linters = ['stylelint', 'eslint']
+let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
+let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
 let g:ale_sign_column_always = 1
 
 let g:ale_sign_error = '✖'
@@ -443,10 +447,6 @@ let g:markdown_folding = 1
 let g:javaScript_fold = 1
 let g:sh_fold_enabled= 7
 " }}}
-" fff {{{
-" Open fff on press of 'f'
-nnoremap fff :F<CR>
-" }}}
 " fzf {{{
 nnoremap <C-f> :Rg<CR>
 nnoremap <C-p> :Rg<CR>
@@ -495,8 +495,8 @@ nmap <silent> <leader>l :MBEToggle<CR>
 nmap <silent> <leader>m :MundoToggle<CR>
 " }}}
 " Ranger {{{
-map <leader>r :Ranger<CR>
-map <leader>R :RangerWorkingDirectory<CR>
+map rrr :Ranger<CR>
+map RRR :RangerWorkingDirectory<CR>
 " open ranger when vim open a directory
 let g:ranger_replace_netrw = 1
 " }}}
@@ -518,21 +518,6 @@ nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>t :TigOpenProjectRootDir<CR>
 nnoremap <Leader>T :TigOpenCurrentFile<CR>
 " }}}
-"}}}
-" Autocompletion (default) {{{
-set complete=.,b,u,]               " In the above example it will pull from keywords in the current file, other buffers (closed or still open), and from the current tags file
-set wildmode=longest,list:longest  " Read https://robots.thoughtbot.com/vim-you-complete-me
-set completeopt=menu,preview       " Default menu
-imap <Tab> <C-P>
-" Temp {{{
-" https://www.youtube.com/watch?v=XA2WjJbmmoM&t=1666s
-" search down into subfolders
-" provides tab-completion for all file-related tasks
-set path+=**
-" Display all matching files when we tab complete
-set wildmenu
-set backupcopy=yes
-"}}}
 "}}}
 
 " vim:foldmethod=marker:foldlevel=0

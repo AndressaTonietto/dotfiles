@@ -22,7 +22,6 @@ set smarttab
 set laststatus=2 " get a window last status (2=always)
 set incsearch " show matches wile searchgin
 set formatoptions+=j " Delete comment character when joining commented lines
-" setglobal tags-=./tags tags-=./tags; tags^=./tags; " TODO: remove if not missing it
 set autoread " update content automatically when a file has been modified externaly
 set history=1000 " command history
 set tabpagemax=50

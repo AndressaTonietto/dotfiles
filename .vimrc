@@ -193,6 +193,13 @@ autocmd BufNewFile,BufRead *.todos set syntax=todos
 nnoremap n\ :set number relativenumber<CR>
 nnoremap n/ :set nonumber norelativenumber<CR>
 
+" Show vertical line
+augroup ColorcolumnOnlyInInsertMode
+  autocmd!
+  autocmd InsertEnter * setlocal colorcolumn=80
+  autocmd InsertLeave * setlocal colorcolumn=0
+augroup END
+
 " Briefly highlight matching brackets on close/open
 set showmatch
 
@@ -495,8 +502,9 @@ nmap <silent> <leader>l :MBEToggle<CR>
 nmap <silent> <leader>m :MundoToggle<CR>
 " }}}
 " Ranger {{{
-map rrr :Ranger<CR>
-map RRR :RangerWorkingDirectory<CR>
+map \ :Ranger<CR>
+map <leader>r :Ranger<CR>
+map <leader>R :RangerWorkingDirectory<CR>
 " open ranger when vim open a directory
 let g:ranger_replace_netrw = 1
 " }}}

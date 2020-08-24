@@ -97,3 +97,12 @@
 [submodule ".vim/pack/plugins/start/vim-dracula"]
 	path = .vim/pack/plugins/start/vim-dracula
 	url = git@github.com:dracula/vim.git
+[submodule ".vim/pack/plugins/start/ultisnips"]
+	path = .vim/pack/plugins/start/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
+[submodule ".vim/pack/plugins/start/vim-snippets"]
+	path = .vim/pack/plugins/start/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
+[submodule ".vim/pack/plugins/start/vim-react-snippets"]
+	path = .vim/pack/plugins/start/vim-react-snippets
+	url = git@github.com:mlaursen/vim-react-snippets.git

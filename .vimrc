@@ -15,6 +15,9 @@ set number
 set relativenumber
 set cursorline
 
+" make vim use zsh
+set shell=zsh
+
 " vim sensible
 set autoindent
 set backspace=indent,eol,start
@@ -81,6 +84,9 @@ set nolazyredraw
 " Toggle paste
 nnoremap p\ :set paste<CR>
 nnoremap p/ :set nopaste<CR>
+
+" Paste (with pbpaste)
+nnoremap v\ :.!pbpaste<CR>
 
 " Enable scrolling
 set mouse=a
@@ -287,13 +293,6 @@ nnoremap s/ :nohlsearch<CR>
 set incsearch  " search as characters are entered
 set ignorecase " search ignores case
 set hlsearch   " highlight matches"
-" }}}
-" Shell {{{
-" make vim use zsh
-set shell=zsh
-" }}}
-" Paste (with pbpaste) {{{
-nnoremap v\ :.!pbpaste<CR>
 " }}}
 " Plugin options {{{
 " Ale linter {{{
@@ -502,8 +501,7 @@ nmap <silent> <leader>m :MundoToggle<CR>
 " }}}
 " Ranger {{{
 map \ :Ranger<CR>
-map <leader>r :Ranger<CR>
-map <leader>R :RangerWorkingDirectory<CR>
+map <leader>r :RangerWorkingDirectory<CR>
 " open ranger when vim open a directory
 let g:ranger_replace_netrw = 1
 " }}}
@@ -526,5 +524,10 @@ nnoremap <Leader>t :TigOpenProjectRootDir<CR>
 nnoremap <Leader>T :TigOpenCurrentFile<CR>
 " }}}
 "}}}
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-m>"
+let g:UltiSnipsJumpBackwardTrigger="<c-,>"
 
 " vim:foldmethod=marker:foldlevel=0

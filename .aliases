@@ -1,11 +1,4 @@
-# System Maintainence {{{
-alias mw="~/.config/mutt/mutt-wizard.sh"
-alias muttwizard="~/.config/mutt/mutt-wizard.sh"
-alias sdn="sudo shutdown now"
-alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
-# }}}
 # Some aliases {{{
-# alias p="sudo pacman"
 alias p="pass"
 alias SS="sudo systemctl"
 alias v="${EDITOR}"
@@ -17,11 +10,11 @@ alias g="git"
 alias trem="transmission-remote"
 alias mkd="mkdir -pv"
 alias take="mkcd"
-# alias ref="~/shortcuts.sh && source ~/.zshrc" # Refresh shortcuts manually and reload bashrc
 alias ref="source ~/.zshrc" # Refresh shortcuts manually and reload bashrc
 alias bw="wal -i ~/.config/wall.png" # Rerun pywal
 alias pi="bash ~/.larbs/wizard/wizard.sh"
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ; } # gitignore.io
+function sort-by-length() { awk '{ print length, $0 }' | sort -n -s | cut -d' '  -f2- }
 # }}}
 # Adding color {{{
 # alias ls='ls -hN --color=auto --group-directories-first'

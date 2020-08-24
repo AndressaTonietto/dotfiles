@@ -20,7 +20,7 @@ zstyle ':prompt:grml:right:setup' items
 # lazy loaded zsh nvm
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
-export NVM_LAZY_LOAD_EXTRA_COMMANDS=('vim' 'nvim' 'v' 'tig' 't' 'tst')
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('vim' 'nvim' 'hub' 'tig' 'npf')
 source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 
 # cache eval

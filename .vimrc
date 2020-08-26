@@ -523,11 +523,16 @@ nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>t :TigOpenProjectRootDir<CR>
 nnoremap <Leader>T :TigOpenCurrentFile<CR>
 " }}}
-"}}}
-
+" vim-javascript {{{
+" enable jsdoc syntax
+let g:javascript_plugin_jsdoc = 1
+" }}}
+" UtilSnips {{{
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-m>"
 let g:UltiSnipsJumpBackwardTrigger="<c-,>"
+" }}}
+"}}}
 
 " vim:foldmethod=marker:foldlevel=0

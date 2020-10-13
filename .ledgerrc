@@ -2,5 +2,4 @@
 --effective
 --sort date
 --tail 50
---pedantic
 --file ~/ledger/journal.ledger

@@ -100,3 +100,4 @@ bind generic 9 !@sh -c "echo %(commit) | pbcopy"
 bind generic + !git commit --amend
 bind generic * !git commit -n
 bind generic P !git push
+bind generic L !git pull

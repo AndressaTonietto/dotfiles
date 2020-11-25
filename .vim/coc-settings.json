@@ -1,15 +1,5 @@
 {
-  "prettier.requireConfig": true,
   "tslint.enable": true,
   "tslint.autoFixOnSave": true,
-  "tsserver.npm": "/usr/local/bin/npm",
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
-    "Markdown",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ]
+  "tsserver.npm": "/usr/local/bin/npm"
 }

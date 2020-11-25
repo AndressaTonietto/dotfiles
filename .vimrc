@@ -312,6 +312,12 @@ let g:ale_sign_warning = '»'
 highlight ALEErrorSign ctermbg=red
 highlight ALEWarning ctermbg=DarkMagenta
 
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
+
+let g:ale_fix_on_save = 1
 
 " use ctrl-k and ctrl-j for navigating between errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)

@@ -212,6 +212,9 @@ set showmatch
 " No wrapping
 set nowrap
 
+" In case there is wrapping; break lines with correct indentation
+set breakindent
+
 " Allow scrolling past the bottom of the document
 set scrolloff=1
 

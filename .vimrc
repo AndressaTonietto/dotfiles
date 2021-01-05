@@ -191,7 +191,6 @@ autocmd BufNewFile,BufRead *.php set syntax=php
 autocmd BufNewFile,BufRead *.prisma set syntax=graphql
 autocmd BufNewFile,BufRead *.mdx set syntax=markdown
 autocmd BufNewFile,BufRead *.todos set syntax=todos
-autocmd BufNewFile,BufRead *yaml.template set syntax=yaml
 " }}}
 " }}}
 " UX {{{

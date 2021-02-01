@@ -30,20 +30,7 @@ source ~/.evalcache.plugin.zsh
 export TERM=xterm-256color
 
 # vi controls in command line
-set -o vi
-set keymap vi
-set noerrorbells
-set showmatch
-set matchtime=8
-set tabstop=2
-set shiftwidth=2
-set nowrapscan
-set ignorecase
-set autoindent
-set cindent
-
-bindkey -M vicmd v edit-command-line
-bindkey -v
+[[ -e ~/.zsh-plugins/zsh-vim-mode  ]] && source ~/.zsh-plugins/zsh-vim-mode/zsh-vim-mode.plugin.zsh
 
 # ci"
 autoload -U select-quoted

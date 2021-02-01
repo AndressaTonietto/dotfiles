@@ -9,5 +9,5 @@ brew install yadm
 Then clone these dotfiles:
 
 ```
-yadm clone git@github.com:tonietto/dotfiles.git
+yadm clone --recurse-submodules --remote-submodules git@github.com:tonietto/dotfiles.git
 ```

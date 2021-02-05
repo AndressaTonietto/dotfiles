@@ -12,68 +12,27 @@ export LC_ALL=en_US.UTF-8
 alias python='python3'
 
 # Load custom files
-[[ -e ~/.shortcuts  ]] && source ~/.shortcuts
-[[ -e ~/.aliases  ]] && source ~/.aliases
+source ~/.shortcuts
+source ~/.zsh-plugins/aliases
+source ~/.zsh-plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 zstyle ':prompt:grml:right:setup' items
+
+# vim mode config
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
 
 # lazy loaded zsh nvm
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
 export NVM_LAZY_LOAD_EXTRA_COMMANDS=('vim' 'nvim' 'gh' 'git' 'tig' 'npf')
-source ~/.zsh-nvm/zsh-nvm.plugin.zsh
+source ~/.zsh-plugins/zsh-nvm/zsh-nvm.plugin.zsh
 
 # cache eval
-source ~/.evalcache.plugin.zsh
+source ~/.zsh-plugins/evalcache.plugin.zsh
 
 # fix term variable type not accepted in ssh servers
 export TERM=xterm-256color
-
-# vi controls in command line
-set -o vi
-set keymap vi
-set noerrorbells
-set showmatch
-set matchtime=8
-set tabstop=2
-set shiftwidth=2
-set nowrapscan
-set ignorecase
-set autoindent
-set cindent
-
-bindkey -M vicmd v edit-command-line
-bindkey -v
-
-# ci"
-autoload -U select-quoted
-zle -N select-quoted
-for m in visual viopp; do
-  for c in {a,i}{\',\",\`}; do
-    bindkey -M $m $c select-quoted
-  done
-done
-
-# ci{, ci(
-autoload -U select-bracketed
-zle -N select-bracketed
-for m in visual viopp; do
-  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
-    bindkey -M $m $c select-bracketed
-  done
-done
-
-# surround
-autoload -Uz surround
-zle -N delete-surround surround
-zle -N add-surround surround
-zle -N change-surround surround
-bindkey -a cs change-surround
-bindkey -a ds delete-surround
-bindkey -a ys add-surround
-bindkey -M visual S add-surround
-
-bindkey 'kk' vi-cmd-mode
 
 # fasd
 _evalcache fasd --init auto
@@ -82,8 +41,8 @@ _evalcache fasd --init auto
 export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD || fd --type f --follow --exclude .git,node_modules)'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fzf init; accordingly to https://github.com/jeffreytse/zsh-vi-mode/issues/4
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
 # Prevent shell from exiting with C-d
 setopt ignoreeof

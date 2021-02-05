@@ -109,3 +109,9 @@
 [submodule ".vim/pack/plugins/start/vim-javascript"]
 	path = .vim/pack/plugins/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".zsh-plugins/zsh-nvm"]
+	path = .zsh-plugins/zsh-nvm
+	url = git@github.com:lukechilds/zsh-nvm.git
+[submodule ".zsh-plugins/zsh-vi-mode"]
+	path = .zsh-plugins/zsh-vi-mode
+	url = git@github.com:jeffreytse/zsh-vi-mode.git

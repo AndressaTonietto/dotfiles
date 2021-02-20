@@ -6,3 +6,6 @@ scan_timeout = 10
 
 [git_status]
 stashed = ""
+
+[aws]
+disabled = true

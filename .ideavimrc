@@ -1,7 +1,6 @@
 source ~/.vimrc
 set surround
 set commentary
-noremap <space>p :action ReformatCode<CR>
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -61,7 +60,9 @@ nnoremap \D :action Debug<cr>
 nnoremap \c :action CheckStyleCurrentFileAction<cr>
 
 " code refactoring
-nnoremap <space>rr :action RenameElement<cr>
+noremap <space>p :action ReformatCode<CR>
+nnoremap <space>rn :action RenameElement<cr>
+nnoremap <space>qf :action ShowIntentionActions<cr>
 
 " unimpaired mappings
 nnoremap [<space> O<esc>j
